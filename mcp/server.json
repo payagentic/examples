@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.payagentic/payagentic",
+  "title": "PayAgentic",
+  "description": "Read-only access to PayAgentic wallets, balances, agents, policies, approvals and transactions.",
+  "version": "0.1.0",
+  "websiteUrl": "https://payagentic.ai/platform/developers",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.payagentic.ai/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Enter the complete Bearer pa_... connector credential.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "X-Organization-Id",
+          "description": "Organization ID, if required by your credential.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

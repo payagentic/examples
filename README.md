@@ -47,6 +47,8 @@ Contact [hello@payagentic.ai](mailto:hello@payagentic.ai?subject=PayAgentic%20de
 
 The hosted PayAgentic MCP connector at `https://mcp.payagentic.ai/mcp` exposes six **read-only** tools for balances, policies, transactions, wallets, agents and approvals. It requires your own scoped connector credential. It does not initiate or approve payments.
 
+[MCP connection guide and tool reference](mcp/README.md).
+
 Request developer access through the contact above. Never put credentials in a GitHub issue, public Postman variable or screenshot. Real payment integration and settlement are separate from this local simulation.
 
 ## License
