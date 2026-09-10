@@ -2,6 +2,8 @@
 
 Runnable examples for developers building agent purchases and paid APIs.
 
+[Watch the 45-second demo or download the examples](https://github.com/payagentic/examples/releases/tag/demo-v1.0.0).
+
 ## Try an API commerce exchange
 
 **Local simulation — no account, API key, wallet or funds required.** This example runs the PayAgentic buyer SDK and merchant middleware together. Authorization and verification are simulated; it does not demonstrate live settlement.
