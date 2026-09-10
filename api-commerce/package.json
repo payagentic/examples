@@ -1,0 +1,12 @@
+{
+  "name": "payagentic-api-commerce-example",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node demo.mjs", "test": "node --test commerce.test.mjs" },
+  "dependencies": {
+    "@payagentic.ai/sdk": "file:./payagentic-sdk.tgz",
+    "@payagentic.ai/vendor": "file:./payagentic-vendor.tgz",
+    "express": "4.22.2"
+  }
+}
