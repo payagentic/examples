@@ -1,0 +1,14 @@
+{
+  "name": "payagentic-read-only-framework-examples",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node demo.mjs", "test": "node --test tools.test.mjs" },
+  "dependencies": {
+    "@payagentic.ai/sdk": "0.2.1",
+    "@langchain/core": "1.2.14",
+    "@langchain/langgraph": "1.4.19",
+    "ai": "7.0.127",
+    "zod": "4.6.2"
+  }
+}

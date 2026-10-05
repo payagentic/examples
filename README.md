@@ -51,6 +51,10 @@ The hosted PayAgentic MCP connector at `https://mcp.payagentic.ai/mcp` exposes s
 
 Request developer access through the contact above. Never put credentials in a GitHub issue, public Postman variable or screenshot. Real payment integration and settlement are separate from this local simulation.
 
+## Framework integrations
+
+[Runnable read-only examples](frameworks/README.md) for LangChain, LangGraph, Vercel AI SDK and CrewAI use the published SDKs with synthetic fixtures. They need no account, real credential, model-provider call or payment. Live authenticated acceptance remains separate.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
