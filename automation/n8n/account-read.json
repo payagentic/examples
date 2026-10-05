@@ -1,0 +1,106 @@
+{
+  "name": "PayAgentic wallet page summary \u2014 account-read",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://app.payagentic.ai/v1/wallets",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "wallet-read",
+      "name": "Read wallet page",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "notes": "Configure a private HTTP Header Auth credential: Authorization: Bearer <your key>. No credential is included in this file."
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => { const valid = Array.isArray($json.items) && typeof $json.has_more === 'boolean'; return JSON.stringify({ wallets_on_page: valid ? $json.items.length : null, has_more: valid ? $json.has_more : null, valid_response: valid }); })() }}",
+        "includeOtherFields": false,
+        "options": {}
+      },
+      "id": "wallet-summary",
+      "name": "Wallet page summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Manual start": {
+      "main": [
+        [
+          {
+            "node": "Read wallet page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read wallet page": {
+      "main": [
+        [
+          {
+            "node": "Wallet page summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false,
+    "executionTimeout": 30
+  },
+  "pinData": {},
+  "tags": []
+}
