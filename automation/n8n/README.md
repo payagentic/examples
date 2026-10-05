@@ -36,3 +36,7 @@ The JSON files are public templates, not an accepted n8n marketplace listing or 
 Run `node automation/n8n/validate.mjs` from the repository root for structural and projection checks. These check the read-only route, credential omission, redirect policy, retention settings and final field filtering. Both workflows passed runtime validation in n8n 2.41.7 on 5 October 2026. For the account template, only the URL was changed to a loopback fixture and a synthetic Header Auth credential was selected. The test verified one authenticated GET and the final filtered result. It did not use a live PayAgentic account.
 
 References: [HTTP Request node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/), [HTTP Request credentials](https://docs.n8n.io/integrations/builtin/credentials/httprequest), [Edit Fields node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.set).
+
+## Directory submission materials
+
+See [SUBMISSION.md](SUBMISSION.md) for the two listing descriptions, creator workflow and submission gates. Each JSON includes a yellow setup note.
