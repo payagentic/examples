@@ -1,0 +1,83 @@
+{
+  "name": "PayAgentic wallet page summary \u2014 synthetic",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\"items\": [{\"id\": \"synthetic-wallet-1\", \"label\": \"synthetic-private-label\", \"address\": \"synthetic-address\", \"balance\": \"12.34\"}], \"has_more\": false}",
+        "includeOtherFields": false,
+        "options": {}
+      },
+      "id": "synthetic-fixture",
+      "name": "Synthetic wallet page",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => { const valid = Array.isArray($json.items) && typeof $json.has_more === 'boolean'; return JSON.stringify({ wallets_on_page: valid ? $json.items.length : null, has_more: valid ? $json.has_more : null, valid_response: valid }); })() }}",
+        "includeOtherFields": false,
+        "options": {}
+      },
+      "id": "wallet-summary",
+      "name": "Wallet page summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Manual start": {
+      "main": [
+        [
+          {
+            "node": "Synthetic wallet page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Synthetic wallet page": {
+      "main": [
+        [
+          {
+            "node": "Wallet page summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false,
+    "executionTimeout": 30
+  },
+  "pinData": {},
+  "tags": []
+}

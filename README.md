@@ -55,6 +55,10 @@ Request developer access through the contact above. Never put credentials in a G
 
 [Runnable read-only examples](frameworks/README.md) for LangChain, LangGraph, Vercel AI SDK and CrewAI use the published SDKs with synthetic fixtures. They need no account, real credential, model-provider call or payment. Live authenticated acceptance remains separate.
 
+## Automation workflows
+
+[n8n wallet summary templates](automation/n8n/README.md) include a credential-free synthetic demo and a separate read-only account workflow. Review the account-data and retention notes before connecting an account.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
